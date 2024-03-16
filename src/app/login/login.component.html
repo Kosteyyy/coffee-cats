@@ -1,0 +1,32 @@
+<div class="form-container">
+    <p>Вы не авторизованы!</p>
+    <form [formGroup]="form">
+        <!-- <fieldset> -->
+        <!-- <legend>Login</legend> -->
+        <div class="form-field">
+            <!-- <label>Email:</label> -->
+            <ion-input
+                name="email"
+                label="Email"
+                label-placement="floating"
+                fill="outline"
+                formControlName="email"
+            ></ion-input>
+        </div>
+        <div class="form-field">
+            <!-- <label>Password:</label> -->
+            <ion-input
+                name="password"
+                label="password"
+                label-placement="floating"
+                fill="outline"
+                formControlName="password"
+                type="password"
+            ></ion-input>
+        </div>
+        <!-- </fieldset> -->
+        <div class="form-buttons">
+            <ion-button (click)="login()">Войти</ion-button>
+        </div>
+    </form>
+</div>

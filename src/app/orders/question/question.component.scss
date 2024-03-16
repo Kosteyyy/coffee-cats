@@ -1,0 +1,17 @@
+:host {
+    width: 100%;
+}
+.question {
+    display: flex;
+    flex-direction: row;
+    width: 90%;
+}
+.input {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+textarea {
+    width: 100%;
+    height: fit-content;
+}

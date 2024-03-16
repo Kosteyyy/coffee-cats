@@ -1,0 +1,6 @@
+<h4>Мои заказы</h4>
+<ion-list *ngIf="orders.length > 0">
+  <ion-item button *ngFor="let order of orders" (click)="gotoOrder(order.id)">
+    <app-order-list-item [order]="order"></app-order-list-item>
+  </ion-item>
+</ion-list>
