@@ -1,0 +1,13 @@
+.question {
+    width: 90%;
+}
+.input-question {
+    display: flex;
+    flex-direction: row;
+    flex-grow: 1;
+}
+textarea {
+    width: 100%;
+    height: fit-content;
+    padding: 5px;
+}

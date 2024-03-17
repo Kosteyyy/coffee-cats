@@ -1,18 +1,49 @@
 <ion-toolbar>
-  <h2>
-    Заказ ID: {{id}}
-  </h2>
-  <ion-buttons slot="end">
-    <ion-button (click)="close()"><ion-icon slot="icon-only" name="close"></ion-icon></ion-button>
-  </ion-buttons>
+    <h2>Заказ ID: {{ id }}</h2>
+    <ion-buttons slot="end">
+        <ion-button (click)="close()"
+            ><ion-icon slot="icon-only" name="close"></ion-icon
+        ></ion-button>
+    </ion-buttons>
 </ion-toolbar>
 
 <ion-grid *ngIf="order">
-  <ion-row>
-    <ion-col size="2">{{order.date | date : 'medium'}}</ion-col>
-    <ion-col size="3">{{order.file}}</ion-col>
-    <ion-col size="6">{{order.description}}</ion-col>
-    <ion-col size="1"><ion-text [color]="statusColor[order.celery_status]">{{statusDict[order.celery_status]}}</ion-text></ion-col>
-  </ion-row>
+    <ion-row>
+        <ion-col size="2">{{ order.date | date : "medium" }}</ion-col>
+        <ion-col size="3">{{ order.file }}</ion-col>
+        <ion-col size="6">{{ order.description }}</ion-col>
+        <ion-col size="1"
+            ><ion-text [color]="statusColor[order.celery_status]">{{
+                statusDict[order.celery_status]
+            }}</ion-text></ion-col
+        >
+    </ion-row>
 </ion-grid>
-<app-question></app-question>
+<div class="text-info">
+    <div class="stenogram">
+        <h3>Стенограмма:</h3>
+        <p>{{ order?.stenogram }}</p>
+    </div>
+</div>
+<div class="questions">
+    <h3>Задать вопрос:</h3>
+    <app-question
+        *ngFor="let question of order?.questions"
+        [question]="question"
+    ></app-question>
+    <div class="question">
+        <label for="question">Вопрос:</label>
+        <div class="input-question">
+            <textarea #textArea name="question" (input)="setQuestion($event)">{{
+                newQuestion
+            }}</textarea>
+            <ion-button fill="clear" color="primary" (click)="send()"
+                ><ion-icon
+                    slot="icon-only"
+                    name="arrow-forward-circle"
+                    size="medium"
+                ></ion-icon
+            ></ion-button>
+        </div>
+    </div>
+</div>

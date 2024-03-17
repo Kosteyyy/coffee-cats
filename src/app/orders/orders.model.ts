@@ -1,5 +1,10 @@
-export type OrderStatus = 'delayed' | 'processing' | 'complete';
-export type Question = { question: string | null, answer?: string | null};
+export type OrderStatus = "delayed" | "processing" | "complete";
+export type Question = {
+    id?: string;
+    question: string | null;
+    answer?: string | null;
+    conference_id: string;
+};
 export type Topic = any;
 export type Stenogram = any;
 export class Order {
@@ -12,7 +17,17 @@ export class Order {
     questions: Question[];
     stenogram: Stenogram;
     topic: Topic;
-    constructor(order: { id: string, celery_status: OrderStatus, celery_task: string, date: string, file: string, description: string, questions: Question[], stenogram: Stenogram, topic: Topic }) {
+    constructor(order: {
+        id: string;
+        celery_status: OrderStatus;
+        celery_task: string;
+        date: string;
+        file: string;
+        description: string;
+        questions: Question[];
+        stenogram: Stenogram;
+        topic: Topic;
+    }) {
         this.id = order.id;
         this.celery_status = order.celery_status;
         this.celery_task = order.celery_task;

@@ -1,11 +1,10 @@
 <div class="question-container">
-  <div class="question">
-    <div class="input">
-      <label for="question">Вопрос:</label>
-      <textarea [disabled]="question.answer" name="question" (input)="setQuestion($event)">{{question.question}}</textarea>
+    <div class="question">
+        {{ question.question }}
     </div>
-    <ion-button fill="clear" color="primary" (click)="send()"><ion-icon slot="icon-only" name="send-outline"></ion-icon></ion-button>
-  </div>
 
-  <div class="answer" *ngIf="question.answer">{{question.answer}}</div>
+    <div class="answer" *ngIf="question.answer">{{ question.answer }}</div>
+    <div class="answer" *ngIf="!question.answer">
+        <ion-spinner name="dots"></ion-spinner>
+    </div>
 </div>
