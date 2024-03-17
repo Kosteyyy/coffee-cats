@@ -14,15 +14,15 @@
         <ion-col size="6">{{ order.description }}</ion-col>
         <ion-col size="1"
             ><ion-text [color]="statusColor[order.celery_status]">{{
-                statusDict[order.celery_status]
+                order.celery_status
             }}</ion-text></ion-col
         >
     </ion-row>
 </ion-grid>
-<div class="text-info">
+<div class="text-info" *ngIf="firstSummary">
     <div class="stenogram">
         <h3>Стенограмма:</h3>
-        <p>{{ order?.stenogram }}</p>
+        <p>{{ firstSummary }}</p>
     </div>
 </div>
 <div class="questions">

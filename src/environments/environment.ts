@@ -4,8 +4,8 @@
 
 export const environment = {
     production: false,
-    baseUrl: "https://jsonplaceholder.typicode.com",
-    // baseUrl: 'http://84.252.140.96:800/api/v1'
+    // baseUrl: "https://jsonplaceholder.typicode.com",
+    baseUrl: 'http://158.160.22.20:800/api/v1'
 };
 
 /*

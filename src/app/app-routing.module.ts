@@ -9,8 +9,8 @@ const routes: Routes = [
     { path: "login", component: LoginComponent },
     { path: "home", component: HomeComponent, canActivate: [AuthGuard] },
     { path: "order/:id", component: OrderComponent, canActivate: [AuthGuard] },
-    { path: "", redirectTo: "home", pathMatch: "full" },
-    { path: "**", redirectTo: "login" },
+    { path: "", redirectTo: "/home", pathMatch: "full" },
+    { path: "**", redirectTo: "/login" },
 ];
 
 @NgModule({

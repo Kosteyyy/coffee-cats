@@ -9,16 +9,16 @@ import { Router } from '@angular/router';
 })
 export class OrderListItemComponent  implements OnInit {
   statusColor: {[key in OrderStatus]: string} = {
-    complete: 'success' ,
-    delayed: 'medium',
-    processing: 'warning' 
+    завершено: 'success' ,
+    ожидание: 'medium',
+    "в процессе": 'warning' 
   }
 
-  statusDict: {[key in OrderStatus]: string} = {
-    complete: 'Завершено' ,
-    delayed: 'Отложено',
-    processing: 'В обработке' 
-  }
+  // statusDict: {[key in OrderStatus]: string} = {
+  //   complete: 'Завершено' ,
+  //   delayed: 'Отложено',
+  //   processing: 'В обработке' 
+  // }
 
   @Input() order: Order | null = null;;
   constructor(private router: Router) { }

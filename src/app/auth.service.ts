@@ -95,6 +95,7 @@ export class AuthService {
     logout() {
         localStorage.removeItem("id_token");
         localStorage.removeItem("expires_at");
+        this.router.navigateByUrl('/login')
     }
 
     public isLoggedIn() {

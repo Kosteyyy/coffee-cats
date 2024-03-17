@@ -1,4 +1,4 @@
-export type OrderStatus = "delayed" | "processing" | "complete";
+export type OrderStatus = "ожидание" | "в процессе" | "завершено";
 export type Question = {
     id?: string;
     question: string | null;

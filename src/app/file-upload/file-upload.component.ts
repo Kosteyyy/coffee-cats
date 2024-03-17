@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FileUploadService } from './file-upload.service';
-import { IonTextarea } from '@ionic/angular';
+import { IonTextarea, LoadingController } from '@ionic/angular';
 
 @Component({
   selector: 'app-file-upload',
@@ -22,7 +22,7 @@ export class FileUploadComponent implements OnInit {
     return size;
   }
 
-  constructor(private fileUploadSrv: FileUploadService) { }
+  constructor(private fileUploadSrv: FileUploadService, private loading: LoadingController) { }
 
   ngOnInit() { }
 
@@ -44,9 +44,16 @@ export class FileUploadComponent implements OnInit {
     }
   }
 
-  public uploadFile() {
+  public async uploadFile() {
     if(!this.file) return;
-    this.fileUploadSrv.uploadFile$(this.file, this.description).subscribe();
+    const loading = await this.loading.create({
+      message: 'Загружаем файл...',
+    });
+
+    loading.present();
+    this.fileUploadSrv.uploadFile$(this.file, this.description).subscribe(val => {
+      loading.dismiss();
+    });
   }
 
 }
